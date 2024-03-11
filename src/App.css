@@ -1,3 +1,8 @@
+body{
+   font-family: "Kumbh Sans", sans-serif;
+   min-width: 400px;
+}
+
 .article-list{
   display: flex;
   flex-wrap: wrap;
@@ -13,13 +18,15 @@
  flex-wrap: wrap;
  justify-content: left;
  background-color: azure;
- border: solid black 2px;
- justify-content: center;
- font-family: "Kumbh Sans", sans-serif;
+ justify-content: center; 
  background-color: rgb(198, 232, 255);
-margin: 10px;
+ margin: 10px;
+ border:solid transparent 5px
+}
 
-
+.article-card:hover{
+  border: solid rgb(255, 65, 255) 5px;
+  opacity: calc(80%);
 }
 .article-box-1{
   display: flex;
@@ -48,6 +55,7 @@ margin: 10px;
 .article-up{
   max-height: 50px;
   margin: 10px;
+  z-index: 1;
 }
 .article-down{
   max-height: 50px;
@@ -55,4 +63,47 @@ margin: 10px;
 }
 .article-delete{
   max-height: 50px;
+}
+
+.article-content{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: antiquewhite;
+  margin: auto;
+  max-width: 1200px;
+  padding: 50px;
+}
+
+.single-article-image{
+  justify-self: center;
+  max-width: 100%;
+  height:auto
+
+}
+
+.article-header{
+  justify-self:center;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  max-width: fit-content;
+  padding-bottom: -50px;
+}
+
+.article-info{
+ justify-self: center;
+ font-style: italic;
+ font-size: 12px;
+}
+
+.article-text{
+  max-width: 700px;
+  text-align:justify;
+  justify-content: center;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+ 
 }
