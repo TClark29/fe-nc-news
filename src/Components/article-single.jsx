@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom'
-import ArticleContent from './article-content'
 import { useState } from 'react'
+import ArticleContent from './article-content'
+import ArticleComments from './article-comments'
+
 
 function ArticleSingle(){
     
@@ -12,6 +14,7 @@ function ArticleSingle(){
     return(
         <div className='article-page'>
         <ArticleContent articleId={articleId}></ArticleContent>
+        <ArticleComments articleId={articleId}></ArticleComments>
         </div>
     )
 }

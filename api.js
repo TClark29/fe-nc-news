@@ -21,4 +21,22 @@ function getArticleById(id){
     console.log(err))
 }
 
-export {getArticles, getArticleById}
+function getCommentsByArticleId(id){
+    return axios.get(`https://nc-news-6wmp.onrender.com/api/articles/${id}/comments`)
+    .then((response) =>{
+        return response.data
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+}
+
+function getUsers(){
+    return axios.get('https://nc-news-6wmp.onrender.com/api/users')
+    .then((response)=>{
+        return response.data
+    })
+    .catch()
+}
+
+export {getArticles, getArticleById, getCommentsByArticleId, getUsers}

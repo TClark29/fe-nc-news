@@ -26,7 +26,6 @@ body{
 
 .article-card:hover{
   border: solid rgb(255, 65, 255) 5px;
-  opacity: calc(80%);
 }
 .article-box-1{
   display: flex;
@@ -106,4 +105,55 @@ body{
   padding-top: 30px;
   padding-bottom: 30px;
  
+}
+
+#main-logo{
+  width: 300px;
+  height: 120px;
+}
+
+#user-avatar{
+  width: 80px;
+  border: solid orange 3px;
+  border-radius: 100%;
+}
+#user-info{
+  display: block;
+  justify-items: center;
+  color: azure;
+}
+
+#user-bar{
+  display: flex;
+  justify-content: space-around;
+  max-width: 700px;
+  margin: auto;
+  background-color: #162836fb;
+}
+
+.comment{
+  background-color: aquamarine;
+  justify-content: center;
+  margin: auto;
+  width:1200px;
+  border: solid black 2px;
+  padding: 10px;
+  margin-top: 20px;
+  
+ 
+}
+
+.comment-buttons{
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  justify-self: center;
+  width: 300px;
+  padding: 10px;
+  background-color: blanchedalmond;
+}
+
+#comment-list{
+  display: flex;
+  flex-wrap: wrap;
 }
