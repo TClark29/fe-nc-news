@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import ArticlesPage from './Components/articles-page'
 import UserBar from './Components/user-bar'
-import ArticleSingle from './Components/articles-single'
+import ArticleSingle from './Components/article-single'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
