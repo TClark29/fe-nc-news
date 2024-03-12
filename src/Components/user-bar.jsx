@@ -9,7 +9,6 @@ function UserBar(){
 
     const { currentUser, setCurrentUser } = useContext(UserContext)
 
-    console.log(currentUser)
 
     return (
         <section id='user-bar'>

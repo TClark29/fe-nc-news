@@ -12,7 +12,6 @@ function ArticleContent(props){
     useEffect(()=>{
         getArticleById(articleId)
         .then((response)=>{
-            console.log(response)
             setArticle(response.article)
         })
     

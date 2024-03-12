@@ -41,8 +41,8 @@ function ArticleComments(props){
                                     </>:
                                     <>
                                         <p>{comment.votes}</p>
-                                        <button class='comment-button'>Vote Up!</button>
-                                        <button class='comment-button'>Vote Down!</button>
+                                        <button className='comment-button'>Vote Up!</button>
+                                        <button className='comment-button'>Vote Down!</button>
                                     </>}
 
                                 </section>    
