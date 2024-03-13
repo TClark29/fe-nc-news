@@ -1,12 +1,19 @@
 import { useNavigate } from "react-router-dom"
-import React from "react";
+import { useContext, useEffect, useState } from "react";
+import { updateArticleVotes } from "../../api";
+import UserContext from "../Contexts/user-context";
+
 
 
 
  
 function ArticlesList(props){
     const articles = props.articles
+    const setArticles = props.setArticles
     const navigate = useNavigate()
+    const [articleVoteErr, setArticleVoteErr] = useState(null)
+
+    const {currentUser} = useContext(UserContext)
 
    function linkToArticle(event, id){ 
         event.cancelBubble = true;
@@ -15,15 +22,37 @@ function ArticlesList(props){
     }    
       
        
+    
 
-        
+       
         
     
-    function voteHandler(event){
-        event.cancelBubble = true;
-        if(event.stopPropagation) event.stopPropagation()
+    function voteHandler(event, votes){
+        event.stopPropagation()
+        setArticleVoteErr(null)
+        const article_id = Number(event.target.value)
+        let articlesClone = structuredClone(articles)
 
-        console.log(event, 2)
+        articlesClone.forEach((article)=>{
+            if (article.article_id === article_id){
+              article.votes = article.votes + votes
+                }
+            })
+
+       setArticles(articlesClone)
+       updateArticleVotes(article_id, votes)
+       .catch(()=>{
+        articlesClone.forEach((article)=>{
+            if (article.article_id === article_id){
+              article.votes = article.votes - votes
+                }
+            })
+        setArticles(articlesClone)
+        setArticleVoteErr('Something went wrong with your vote')
+       })
+      
+
+
     }
    
     
@@ -35,9 +64,16 @@ function ArticlesList(props){
 
                     <div className="article-box-1">
                         <img className='article-img' src={article.article_img_url} alt={`A picture for the article ${article.title}`} />
-                        <button className="article-up" onClick={(e)=>voteHandler(e)}>Vote up!</button>
-                        <p className={'article-votes'}>{article.votes}</p>
-                        <button className='article-down'>Vote down!</button>
+                        
+                        <div className='article-card-vote-box'>
+                            {currentUser!==null&&currentUser.username!==article.author?<button value={article.article_id} className="article-up" onClick={(e)=>voteHandler(e, 1)}>Vote up!</button>:null}
+                            
+                            <p className={'article-votes'}>{article.votes}</p>
+                            {currentUser!==null&&currentUser.username!==article.author?<button value={article.article_id} className='article-down'onClick={(e)=>voteHandler(e, -1)}>Vote down!</button>:null}
+                            
+                        </div>
+                        <p className="article-list-vote-err">{articleVoteErr}</p>
+                        {currentUser!==null&&currentUser.username===article.author?<button className="article-delete">Delete my article</button>:null}
                     </div>
                     
                     <div className='article-box-2'>
@@ -46,7 +82,7 @@ function ArticlesList(props){
                         <p className='article-author'>By {article.author}</p>
                         <p className='article-date'>{article.created_at.slice(0,10)}</p>
                         <p className="article-comment-count">Comments: {article.comment_count}</p>
-                        <button className="article-delete">Delete</button>
+                        
                     </div>
 
                     

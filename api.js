@@ -39,4 +39,14 @@ function getUsers(){
     .catch()
 }
 
-export {getArticles, getArticleById, getCommentsByArticleId, getUsers}
+function updateArticleVotes(id, votes){
+    const sentBody = {'inc_votes':votes}
+    return axios.patch(`https://nc-news-6wmp.onrender.com/api/articles/${id}`, sentBody)
+    .then((response)=>{
+        return response.data
+    })
+    .catch()
+}
+
+
+export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes}

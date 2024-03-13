@@ -28,11 +28,19 @@ body{
   border: solid rgb(255, 65, 255) 5px;
 }
 .article-box-1{
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 360px;
   padding: 10px;
+ 
+}
+.article-card-vote-box{
+  
+  width: 200px;
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
 .article-box-2{
   width: 360px;
@@ -42,8 +50,9 @@ body{
 }
 
 .article-img{
-  width: 280px; 
- -ms-grid-row-span: 3;
+  width: 320px; 
+  margin: auto;
+ 
  
 }
 
@@ -61,7 +70,10 @@ body{
   margin:10px
 }
 .article-delete{
+  display: flex;
   max-height: 50px;
+  margin: auto;
+  justify-self: center;
 }
 
 .article-content{
@@ -156,4 +168,29 @@ body{
 #comment-list{
   display: flex;
   flex-wrap: wrap;
+}
+
+.article-vote-buttons{
+  width: 300px;
+  margin: auto;
+  justify-content: space-around;
+  display: flex;
+  background-color: rgb(164, 201, 243);
+  
+}
+.article-vote-err{
+  margin: auto;
+  font-style: italic;
+  margin-bottom: 5px;
+  color: #6d0303fb;
+}
+.article-list-vote-err{
+  margin: auto;
+  font-style: italic;
+  margin-bottom: 5px;
+  color: #6d0303fb;
+  text-align: center;
+}
+.loading-message{
+  text-align: center;
 }
