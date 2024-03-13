@@ -1,25 +1,35 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Contexts/user-context";
-import { getCommentsByArticleId, getUsers } from "../../api";
+import { getCommentsByArticleId} from "../../api";
+import LoadingMessage from "./Loading-Message";
 
 
 function ArticleComments(props){
 
     const { currentUser } = useContext(UserContext)
     const [comments, setComments] = useState([])
+    const [commentsLoading, setCommentsLoading] = useState(true)
     const articleId = props.articleId
     
 
     useEffect(()=>{
+        setCommentsLoading(true)
         getCommentsByArticleId(articleId)
         .then((response)=>{
             setComments(response.comments)
+            setCommentsLoading(false)
         })
     }, [currentUser])
 
 
 
+if (commentsLoading){
+    return (
+        <LoadingMessage element='comments'></LoadingMessage>
+    )
+}
 
+else{
 
 
     return (
@@ -55,7 +65,7 @@ function ArticleComments(props){
         </ul>
     )
     
-
+}
 
 }
 
