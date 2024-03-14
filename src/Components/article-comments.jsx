@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../Contexts/user-context";
 import { getCommentsByArticleId} from "../../api";
 import LoadingMessage from "./Loading-Message";
+import CommentPostForm from "./comment-post-form.jsx";
 
 
 function ArticleComments(props){
@@ -33,7 +34,8 @@ else{
 
 
     return (
-        
+        <>
+        <CommentPostForm setComments={setComments} articleId={articleId}></CommentPostForm>
         <ul id="comment-list">
             {comments.map((comment)=>{
                 return (
@@ -63,6 +65,7 @@ else{
                 )
             })}
         </ul>
+        </>
     )
     
 }
