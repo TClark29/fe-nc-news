@@ -48,5 +48,14 @@ function updateArticleVotes(id, votes){
     .catch()
 }
 
+function postComment(articleId, user, body){
+    const sentBody = { body: body, username: user }
+    return axios.post(`https://nc-news-6wmp.onrender.com/api/articles/${articleId}/comments`, sentBody)
+    .then((response)=>{
+        return response.data})
+    .catch()
 
-export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes}
+}
+
+
+export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes, postComment}
