@@ -1,9 +1,15 @@
 import axios from "axios";
 
 
-function getArticles(){
+function getArticles(topic='all'){
 
-    return axios.get('https://nc-news-6wmp.onrender.com/api/articles')
+    let queryStr=''
+
+    if (topic!=='all'&&topic!==undefined){
+        queryStr+=`?topic=${topic}`
+    }
+
+    return axios.get(`https://nc-news-6wmp.onrender.com/api/articles${queryStr}`)
     .then((response)=>{
         return response.data
     })
@@ -65,5 +71,18 @@ function deleteComment(commentId){
    .catch()
 }
 
+function getTopics(){
+    
+        
 
-export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes, postComment, deleteComment}
+    return axios.get(`https://nc-news-6wmp.onrender.com/api/topics`)
+    .then((response)=>{ 
+        return response.data}
+   )
+   .catch()
+   }
+
+   
+
+
+export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes, postComment, deleteComment, getTopics}

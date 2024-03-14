@@ -220,3 +220,22 @@ body{
   height: 100px;
   
 }
+
+#nav-bar{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: auto;
+  margin: auto;
+  background-color: rgb(189, 115, 41);
+  width: 300px;
+ 
+}
+
+#topic-select{
+  color: beige;
+  justify-items: center;
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  border: black solid 3px;
+}
