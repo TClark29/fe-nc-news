@@ -65,5 +65,12 @@ function deleteComment(commentId){
    .catch()
 }
 
+function getTopics(){
+    return axios.get(`https://nc-news-6wmp.onrender.com/api/topics`)
+    .then((response)=>{ 
+        return response.data}
+   )
+   .catch()
+}
 
-export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes, postComment, deleteComment}
+export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes, postComment, deleteComment, getTopics}
