@@ -3,6 +3,8 @@ import UserContext from "../Contexts/user-context";
 import { getCommentsByArticleId} from "../../api";
 import LoadingMessage from "./Loading-Message";
 import CommentPostForm from "./comment-post-form.jsx";
+import { deleteComment } from "../../api";
+
 
 
 function ArticleComments(props){
@@ -11,6 +13,8 @@ function ArticleComments(props){
     const [comments, setComments] = useState([])
     const [commentsLoading, setCommentsLoading] = useState(true)
     const articleId = props.articleId
+    const [commentDeleteLoading, setCommentDeleteLoading] = useState(false)
+    
     
 
     useEffect(()=>{
@@ -21,6 +25,30 @@ function ArticleComments(props){
             setCommentsLoading(false)
         })
     }, [currentUser])
+
+
+
+    function commentDeleteHandler(event, id){
+
+        setCommentDeleteLoading(true)
+        deleteComment(id)
+        .then(()=>{
+            
+            let commentsCopy = structuredClone(comments)
+            commentsCopy.forEach((comment)=>{
+            if(comment.comment_id === id){
+                comment.deleted = true
+
+                }
+            })
+        setComments(commentsCopy)
+        setCommentDeleteLoading(false)}      
+        )
+        .catch((err)=>{
+            alert('Comment could not be deleted')
+            setCommentDeleteLoading(false)
+        })
+    }
 
 
 
@@ -39,7 +67,7 @@ else{
         <ul id="comment-list">
             {comments.map((comment)=>{
                 return (
-                    <div className='comment' key={comment.comment_id}>
+                    <div className={comment.deleted===undefined?'comment':'deleted-comment'} key={comment.comment_id}>
                     
                         
                         <h3 className='comment-header'>{comment.author}</h3>
@@ -48,8 +76,9 @@ else{
                             <section className='comment-buttons'>
                                 {comment.author===currentUser.username?
                                     <> 
-                                        <p>{comment.votes}</p>
-                                        <button>Delete My Comment</button>
+                                        <p>{comment.votes}</p>   
+                                        <button disabled={comment.deleted!==undefined||commentDeleteLoading===true?true:false}onClick={(event)=>commentDeleteHandler(event, comment.comment_id)}>Delete My Comment</button>
+                                        
                                     </>:
                                     <>
                                         <p>{comment.votes}</p>
