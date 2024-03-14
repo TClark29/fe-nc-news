@@ -1,12 +1,22 @@
 body{
    font-family: "Kumbh Sans", sans-serif;
    min-width: 400px;
+   background-color: #fffffffb
+   
 }
 
 .article-list{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
+  right: 20px;
+  top:5px;
+  margin: auto;
+ 
+ 
+  
+
 }
 
 
@@ -19,13 +29,16 @@ body{
  justify-content: left;
  background-color: azure;
  justify-content: center; 
- background-color: rgb(198, 232, 255);
- margin: 10px;
- border:solid transparent 5px
+ background-color:  rgba(189, 115, 41, 0.945);
+  margin: 10px;
+ border:solid transparent 10px;
+ border-radius: 10px;
+ padding:5px
+
 }
 
 .article-card:hover{
-  border: solid rgb(255, 65, 255) 5px;
+  border: solid rgb(217, 29, 255) 10px;
 }
 .article-box-1{
   display: block;
@@ -47,23 +60,31 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  border: black solid 2px;
+  padding: 5px;
+  text-align: center;
+  background-color: #162836fb;
+  color: antiquewhite;
+  border-radius: 10px ;
+  
 }
 
 .article-img{
   width: 320px; 
   margin: auto;
+  
  
  
 }
 
 .article-title{
-  column-span: 3;
+  width: 400px;
 
 }
 .article-up{
   max-height: 50px;
   margin: 10px;
-  z-index: 1;
+ 
 }
 .article-down{
   max-height: 50px;
@@ -138,9 +159,13 @@ body{
 #user-bar{
   display: flex;
   justify-content: space-around;
-  max-width: 700px;
+  max-width: 900px;
   margin: auto;
   background-color: #162836fb;
+
+  justify-self: center;
+  
+
 }
 
 .comment{
@@ -222,20 +247,41 @@ body{
 }
 
 #nav-bar{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px 50px;
   margin-top: auto;
   margin: auto;
-  background-color: rgb(189, 115, 41);
-  width: 300px;
+  background-color: rgba(189, 115, 41, 0.945);
+  width: 500px;
+  border: solid rgb(255, 195, 29) 3px;
+  justify-items: center;
+  border-radius: 10px;
+  
+  
+  justify-self: center;
+  align-self: center;
+  
+  
+  
+ 
  
 }
 
-#topic-select{
+#nav-topic{
   color: beige;
   justify-items: center;
   text-align: center;
-  width: 300px;
+  width: 200px;
   margin: auto;
-  border: black solid 3px;
+  
+  
+}
+#nav-info{
+  grid-column: 1;
+  grid-row:2
+}
+#nav-sorter{
+   grid-column: 3/3;
+  grid-row: 1/2;
 }

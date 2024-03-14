@@ -11,27 +11,34 @@ import { useParams, useSearchParams } from "react-router-dom"
 
 function ArticlesPage(){
 
-    const {currentUser} = useContext(UserContext)
+ 
 
     const [articles, setArticles] = useState([])
     const [articlesLoading, setArticlesLoading] = useState(true)
-    const [selectedTopic, setSelectedTopic] = useState('')
+    const [selectedTopic, setSelectedTopic] = useState('all')
     const [searchParams, setSearchParams] = useSearchParams()
+    const [filterButtonPressed, setFilterButtonPressed] = useState(false)
 
 
-
+let {topic} = useParams()
     
 
     useEffect(()=>{
         setArticlesLoading(true)
-        setSelectedTopic(searchParams.get('topic'))
-        getArticles(selectedTopic)
+        const sortBy = searchParams.get('sortBy')
+        const order = searchParams.get('order')
+        
+        getArticles(topic, sortBy, order)
         .then((response)=>{
+            
             setArticlesLoading(false)
             setArticles(response.articles)
+            setFilterButtonPressed(false)
             
         })
-    }, [selectedTopic])
+        .catch((err)=>
+        console.log(err))
+    }, [selectedTopic, searchParams, filterButtonPressed])
 
     if (articlesLoading){
         return (
@@ -41,7 +48,7 @@ function ArticlesPage(){
     else{
 
     return (<>
-    <ArticlesNav selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic} setSearchParams={setSearchParams}></ArticlesNav>
+    <ArticlesNav setFilterButtonPressed={setFilterButtonPressed} selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic} setSearchParams={setSearchParams}></ArticlesNav>
     <ArticlesList articles={articles} setArticles={setArticles}/>
     
     </>)

@@ -15,7 +15,7 @@ function ArticleContent(props){
     
 
     function handleArticleNavButton(){
-        navigate('/')
+        navigate('/all')
 
     }
 
