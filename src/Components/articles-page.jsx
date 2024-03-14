@@ -15,11 +15,9 @@ function ArticlesPage(){
 
     const [articles, setArticles] = useState([])
     const [articlesLoading, setArticlesLoading] = useState(true)
-    const [selectedTopic, setSelectedTopic] = useState('all')
+    const [selectedTopic, setSelectedTopic] = useState('')
     const [searchParams, setSearchParams] = useSearchParams()
 
-    console.log(searchParams)
-    console.log(searchParams.get('topic'))
 
 
     
@@ -43,7 +41,7 @@ function ArticlesPage(){
     else{
 
     return (<>
-    <ArticlesNav setSelectedTopic={setSelectedTopic} setSearchParams={setSearchParams}></ArticlesNav>
+    <ArticlesNav selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic} setSearchParams={setSearchParams}></ArticlesNav>
     <ArticlesList articles={articles} setArticles={setArticles}/>
     
     </>)
