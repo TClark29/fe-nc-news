@@ -1,8 +1,14 @@
-# React + Vite
+#Info
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the front end for a simple news website, hosted here: https://norfcodersnews.netlify.app/
 
-Currently, two official plugins are available:
+It's a react project that can fetch and update data from an external API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The back-end for the API can be found here: https://github.com/TClark29/nc_news
+
+It order to clone and run locally, you will need node v21.5, then run:
+
+-git clone https://github.com/TClark29/fe-nc-news
+-cd fe-nc-news
+-npm install 
+-npm run dev
