@@ -32,8 +32,8 @@ function getArticleById(id){
     .then((response)=>{
         return response.data
     })
-    .catch((err)=>
-    console.log(err))
+    .catch((err)=>{
+    return err})
 }
 
 function getCommentsByArticleId(id){
@@ -42,7 +42,7 @@ function getCommentsByArticleId(id){
         return response.data
     })
     .catch((err)=>{
-        console.log(err)
+        return err
     })
 }
 
@@ -51,7 +51,9 @@ function getUsers(){
     .then((response)=>{
         return response.data
     })
-    .catch()
+    .catch((err)=>{
+        return err
+    })
 }
 
 function updateArticleVotes(id, votes){
@@ -60,7 +62,9 @@ function updateArticleVotes(id, votes){
     .then((response)=>{
         return response.data
     })
-    .catch()
+    .catch((err)=>{
+        return err
+    })
 }
 
 function postComment(articleId, user, body){
@@ -68,7 +72,9 @@ function postComment(articleId, user, body){
     return axios.post(`https://nc-news-6wmp.onrender.com/api/articles/${articleId}/comments`, sentBody)
     .then((response)=>{
         return response.data})
-    .catch()
+    .catch((err)=>{
+        return err
+    })
 
 }
 
@@ -77,7 +83,9 @@ function deleteComment(commentId){
     .then((response)=>{ 
         return response}
    )
-   .catch()
+   .catch((err=>{
+    return err
+   }))
 }
 
 function getTopics(){
@@ -88,7 +96,9 @@ function getTopics(){
     .then((response)=>{ 
         return response.data}
    )
-   .catch()
+   .catch((err)=>{
+    return err
+   })
    }
 
    

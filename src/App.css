@@ -285,3 +285,14 @@ body{
    grid-column: 3/3;
   grid-row: 1/2;
 }
+
+#error-page{
+display: grid;
+justify-items: center;
+align-content: center;
+height: 400px;
+width: 400px;
+padding: auto;
+margin: auto;
+
+}

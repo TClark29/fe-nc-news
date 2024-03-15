@@ -5,6 +5,7 @@ import UserBar from './Components/user-bar'
 import ArticleSingle from './Components/article-single'
 import { Route, Routes } from 'react-router-dom'
 import UserContext from './Contexts/user-context'
+import ErrorPage from './Components/error-page'
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
 
         <Route path='/:topic' element={<ArticlesPage></ArticlesPage>}/>
         <Route path='/article/:id' element={<ArticleSingle></ArticleSingle>}/>
+        <Route path='/*' element = {<ErrorPage></ErrorPage>}/>
       </Routes>
     </UserContext.Provider>  
     </>

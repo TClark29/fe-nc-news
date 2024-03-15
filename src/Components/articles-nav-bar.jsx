@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react"
-import { getTopics } from "../../api"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { useState} from "react"
+import { useNavigate} from "react-router-dom"
 
 
 
@@ -9,7 +8,7 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 
 function ArticlesNav(props){
 
-const [topics, setTopics] = useState([])
+const topics=props.topics
 const selectedTopic = props.selectedTopic
 const setSelectedTopic = props.setSelectedTopic
 const setSearchParams = props.setSearchParams
@@ -19,16 +18,7 @@ const [order, setOrder] = useState(null)
 const navigate = useNavigate()
 
 
-useEffect(()=>{
-    getTopics()
-    .then((response)=>{
-        setTopics(response.topics)
 
-        
-        
-    })
-
-}, [])
 
 
 
