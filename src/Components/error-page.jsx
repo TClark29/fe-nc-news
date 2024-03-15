@@ -1,13 +1,17 @@
 import { useNavigate } from "react-router-dom"
 
-useNavigate
 
-function ErrorPage(){
+
+function ErrorPage(props){
+    const error = props.error
+    console.log(props, error, 'error page')
+   
+    
 
     const navigate = useNavigate()
 
     function errorClickNav(){
-        console.log(1)
+        
         navigate('/all')
 
 
@@ -16,8 +20,8 @@ function ErrorPage(){
 
     return <>
     <section id ='error-page'>
-    <h1 id='status-msg'>404</h1>
-    <h2 id='error-page-msg'>This page doesn't seem to exist</h2>
+    <h1 id='status-msg'>{error}</h1>
+    <h2 id='error-page-msg'></h2>
     <button className='styled-button'onClick={(e)=>errorClickNav(e)}>Return to articles</button>
     </section>
     </>

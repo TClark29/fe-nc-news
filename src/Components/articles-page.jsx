@@ -48,13 +48,15 @@ useEffect(()=>{
         
         getArticles(topic, sortBy, order)
         .then((response)=>{
-            
+         
             setArticlesLoading(false)
             setArticles(response.articles)
             setFilterButtonPressed(false)
             
         })
-        .catch((err)=>{}
+        .catch((err)=>{
+            console.log(err)
+        }
         )
     }, [selectedTopic, searchParams, filterButtonPressed, topic])
 
@@ -66,9 +68,9 @@ useEffect(()=>{
     else{
          
         if(topic!==undefined&&!allowedTopics.includes(topic)){
-            console.log(topic, topics)
+          
             return (
-                <ErrorPage></ErrorPage>
+                <ErrorPage error={'Request failed will status code 404'}></ErrorPage>
             )
         }
 

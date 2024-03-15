@@ -23,6 +23,7 @@ function getArticles(topic='all', sortBy, order){
         return response.data
     })
     .catch((err)=>{
+       
         return err
     })
 }
@@ -31,9 +32,13 @@ function getArticleById(id){
     return axios.get(`https://nc-news-6wmp.onrender.com/api/articles/${id}`)
     .then((response)=>{
         return response.data
+        
     })
     .catch((err)=>{
-    return err})
+        return Promise.reject(err)
+    
+        
+})
 }
 
 function getCommentsByArticleId(id){
