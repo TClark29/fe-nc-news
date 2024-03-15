@@ -15,17 +15,28 @@ function ArticleSingle(){
     const [articleId, setArticleId] = useState(id)
     const [article, setArticle] = useState(null)
     const [articleLoading, setArticleLoading] = useState(true)
+    const [error, setError] = useState(null)
     
 
     useEffect(()=>{
         setArticleLoading(true)
         
+        
         getArticleById(articleId)
         .then((response)=>{
-            setArticleLoading(false)
+           setArticleLoading(false)
             setArticle(response.article)
+            
+                
+           
+            
+           
         })
         .catch((err)=>{
+            console.log(err, 'catch')
+            setError(err.message)
+            setArticleLoading(false)
+            
             
         })
     }, [])
@@ -37,9 +48,9 @@ function ArticleSingle(){
     }
     else{
 
-    if(article===null||article===undefined){
+    if(error){
         return (
-            <ErrorPage></ErrorPage>
+            <ErrorPage error={error}></ErrorPage>
         )
     }
 
