@@ -68,7 +68,7 @@ else{
         <ul id="comment-list">
             {comments.map((comment)=>{
                 return (
-                    <div className={comment.deleted===undefined?'comment':'deleted-comment'} key={comment.comment_id}>
+                    <li className={comment.deleted===undefined?'comment':'deleted-comment'} key={comment.comment_id}>
                     
                         
                         <h3 className='comment-header'>{comment.author}</h3>
@@ -78,20 +78,20 @@ else{
                                 {comment.author===currentUser.username?
                                     <> 
                                         <p>{comment.votes}</p>   
-                                        <button disabled={comment.deleted!==undefined||commentDeleteLoading===true?true:false}onClick={(event)=>commentDeleteHandler(event, comment.comment_id)}>Delete My Comment</button>
+                                        <button className='styled-button' disabled={comment.deleted!==undefined||commentDeleteLoading===true?true:false}onClick={(event)=>commentDeleteHandler(event, comment.comment_id)}>Delete My Comment</button>
                                         
                                     </>:
                                     <>
                                         <p>{comment.votes}</p>
-                                        <button className='comment-button'>Vote Up!</button>
-                                        <button className='comment-button'>Vote Down!</button>
+                                        <button className='comment-button, styled-button'>Vote Up!</button>
+                                        <button className='comment-button, styled-button'>Vote Down!</button>
                                     </>}
 
                                 </section>    
                                     :<></>}
                            
                          
-                    </div>
+                    </li>
                 )
             })}
         </ul>

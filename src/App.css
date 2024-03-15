@@ -1,7 +1,8 @@
 body{
    font-family: "Kumbh Sans", sans-serif;
-   min-width: 400px;
-   background-color: #fffffffb
+   min-width: 320px;
+   background-color:  #f80808;
+   justify-content: center;
    
 }
 
@@ -27,18 +28,18 @@ body{
  min-width: 400px;
  flex-wrap: wrap;
  justify-content: left;
- background-color: azure;
+
  justify-content: center; 
- background-color:  rgba(189, 115, 41, 0.945);
+ background-color:  rgb(255, 255, 255);
   margin: 10px;
- border:solid transparent 10px;
+ border:solid transparent 8px;
  border-radius: 10px;
  padding:5px
 
 }
 
 .article-card:hover{
-  border: solid rgb(217, 29, 255) 10px;
+  border: solid rgb(92, 222, 255) 8px;
 }
 .article-box-1{
   display: block;
@@ -53,18 +54,20 @@ body{
   width: 200px;
   display: flex;
   margin: auto;
-  justify-content: center;
+  justify-content: space-evenly;
+  font-weight: 900;
+  color: #f80808;
+  
 }
 .article-box-2{
   width: 360px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border: black solid 2px;
   padding: 5px;
   text-align: center;
-  background-color: #162836fb;
-  color: antiquewhite;
+  background-color: #fffffffb;
+  color: rgb(3, 3, 3);
   border-radius: 10px ;
   
 }
@@ -95,6 +98,8 @@ body{
   max-height: 50px;
   margin: auto;
   justify-self: center;
+  align-self: center;
+  text-align: center;
 }
 
 .article-content{
@@ -102,16 +107,17 @@ body{
   align-items: center;
   justify-content: center;
   margin: auto;
-  background-color: antiquewhite;
-  margin: auto;
+  background-color: rgb(255, 255, 255);
   max-width: 1200px;
   padding: 50px;
+  margin-top: 20px;
 }
 
 .single-article-image{
   justify-self: center;
   max-width: 100%;
-  height:auto
+  height:auto;
+  border-radius: 10px;
 
 }
 
@@ -141,27 +147,34 @@ body{
 }
 
 #main-logo{
-  width: 300px;
-  height: 120px;
+  padding: 5px;
+  max-width: 320px;
+  width: auto;
+  height: auto;
 }
 
 #user-avatar{
   width: 80px;
-  border: solid orange 3px;
+  border: solid rgb(255, 255, 255) 3px;
   border-radius: 100%;
 }
 #user-info{
   display: block;
-  justify-items: center;
+  text-align: center;
   color: azure;
+  margin: auto;
+  border-left: dotted white 10px;
+  padding: 10px;
 }
 
 #user-bar{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   max-width: 900px;
+  max-height: fit-content;
   margin: auto;
-  background-color: #162836fb;
+  background-color: #f80808;
+  border-bottom: dotted white 10px;
 
   justify-self: center;
   
@@ -169,25 +182,25 @@ body{
 }
 
 .comment{
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
   justify-content: center;
   margin: auto;
   width:1200px;
-  border: solid black 2px;
   padding: 10px;
   margin-top: 20px;
+  border-radius: 10px;
   
  
 }
 .deleted-comment{
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
   justify-content: center;
   margin: auto;
   width:1200px;
-  border: solid rgb(243, 19, 19) 5px;
   padding: 10px;
   margin-top: 20px;
   opacity: 20%;
+  border-radius: 10px;
   
  
 }
@@ -199,7 +212,9 @@ body{
   justify-self: center;
   width: 300px;
   padding: 10px;
-  background-color: blanchedalmond;
+  background-color: rgb(255, 255, 255);
+  border: black solid 3px;
+  border-radius: 10px;
 }
 
 #comment-list{
@@ -212,9 +227,13 @@ body{
   margin: auto;
   justify-content: space-around;
   display: flex;
-  background-color: rgb(164, 201, 243);
+  background-color: rgb(255, 255, 255);
+  font-weight: 900;
+  color: #f80808;
   
 }
+
+
 .article-vote-err{
   margin: auto;
   font-style: italic;
@@ -239,6 +258,7 @@ body{
   text-align: center;
   justify-content: center;
   margin: auto;
+  color: rgb(255, 255, 255);
 }
 #comment-input{
   width: 400px;
@@ -250,11 +270,12 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 50px 50px;
-  margin-top: auto;
+  
   margin: auto;
-  background-color: rgba(189, 115, 41, 0.945);
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
   width: 500px;
-  border: solid rgb(255, 195, 29) 3px;
+  border: solid rgb(255, 255, 255) 3px;
   justify-items: center;
   border-radius: 10px;
   
@@ -269,11 +290,12 @@ body{
 }
 
 #nav-topic{
-  color: beige;
+  color: rgb(0, 0, 0);
   justify-items: center;
   text-align: center;
   width: 200px;
   margin: auto;
+  
   
   
 }
@@ -284,6 +306,7 @@ body{
 #nav-sorter{
    grid-column: 3/3;
   grid-row: 1/2;
+  
 }
 
 #error-page{
@@ -294,5 +317,26 @@ height: 400px;
 width: 400px;
 padding: auto;
 margin: auto;
+color: rgb(255, 255, 255);
 
+}
+
+.styled-button{
+  border-radius: 10px;
+  border: rgb(250, 4, 4) solid 3px;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+
+
+}
+.styled-button:hover{
+  border: rgb(59, 199, 255) solid 3px;
+  box-shadow: 0px 0px 5px  black;
+}
+
+#return-button{
+  width: 300px;
+  margin-top: 20px;
+  justify-self: center;
+  
 }

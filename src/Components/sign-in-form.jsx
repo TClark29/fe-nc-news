@@ -14,7 +14,7 @@ function SignInForm(){
     const { setCurrentUser } = useContext(UserContext)
 
     return (
-        <button onClick = {()=>setCurrentUser(userTemp)}>Sign In</button>
+        <button className='styled-button'onClick = {()=>setCurrentUser(userTemp)}>Sign In</button>
     )
 
 

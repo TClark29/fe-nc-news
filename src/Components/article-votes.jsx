@@ -31,12 +31,12 @@ return currentUser.username!==article.author?(
     <> 
         <p className="article-vote-err">{voteErr}</p>
         <div className="article-vote-buttons">
-            <button className="article-up" onClick={(event)=>voteHandler(event,1)}>Vote up!</button>
+            <button className="article-up, styled-button" onClick={(event)=>voteHandler(event,1)}>Vote up!</button>
             <p className={'article-votes'}>{article.votes}</p>
-            <button className='article-down' onClick={(event)=>voteHandler(event,-1)}>Vote down!</button>
+            <button className='article-down, styled-button' onClick={(event)=>voteHandler(event,-1)}>Vote down!</button>
         </div>
      </>   
-    ):<button>Delete My Article</button>
+    ):<button className="styled-button">Delete My Article</button>
 }
 
 }

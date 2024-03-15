@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import UserContext from "../Contexts/user-context"
-import logo from '../assets/logo.png'
+import logo from '../assets/logo-header.png'
 import UserInfo from "./user-info"
 import SignInForm from "./sign-in-form"
 

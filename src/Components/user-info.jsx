@@ -12,7 +12,7 @@ function UserInfo(){
             <img id='user-avatar' src={currentUser.avatar_url} alt="Current user avatar" />
             <p>{`Signed in as user ${currentUser.username}`}</p>
             <p>{`Welcome, ${currentUser.name.split(' ')[0]}`}</p>
-            <button onClick={()=>setCurrentUser(null)}>Sign Out</button>
+            <button className="styled-button" onClick={()=>setCurrentUser(null)}>Sign Out</button>
         </section>
     )
 
