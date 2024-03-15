@@ -32,7 +32,7 @@ if (article!==null){
             <p className="article-text">{article.body}</p>
             <ArticleVotes id='article-votes' article={article} setArticle={setArticle}></ArticleVotes>
             
-            <button onClick={handleArticleNavButton}>Return to articles</button>
+            <button id ='return-button' className='styled-button' onClick={handleArticleNavButton}>Return to articles</button>
         </div>
     )
 }

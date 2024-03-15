@@ -60,20 +60,20 @@ function ArticlesList(props){
     return (<ul className='article-list'>
         {articles.map((article)=>{
             return(
-                <div className='article-card' value={article.article_id} key={article.article_id} onClick={(e)=>linkToArticle(e,article.article_id)}> 
+                <li tabIndex='0' className='article-card' value={article.article_id} key={article.article_id} onClick={(e)=>linkToArticle(e,article.article_id)}> 
 
                     <div className="article-box-1">
                         <img className='article-img' src={article.article_img_url} alt={`A picture for the article ${article.title}`} />
                         
                         <div className='article-card-vote-box'>
-                            {currentUser!==null&&currentUser.username!==article.author?<button value={article.article_id} className="article-up" onClick={(e)=>voteHandler(e, 1)}>Vote up!</button>:null}
+                            {currentUser!==null&&currentUser.username!==article.author?<button value={article.article_id} className="article-up, styled-button" onClick={(e)=>voteHandler(e, 1)}>Vote up!</button>:null}
                             
                             <p className={'article-votes'}>{article.votes}</p>
-                            {currentUser!==null&&currentUser.username!==article.author?<button value={article.article_id} className='article-down'onClick={(e)=>voteHandler(e, -1)}>Vote down!</button>:null}
+                            {currentUser!==null&&currentUser.username!==article.author?<button value={article.article_id} className='article-down, styled-button'onClick={(e)=>voteHandler(e, -1)}>Vote down!</button>:null}
                             
                         </div>
                         <p className="article-list-vote-err">{articleVoteErr}</p>
-                        {currentUser!==null&&currentUser.username===article.author?<button className="article-delete">Delete my article</button>:null}
+                        {currentUser!==null&&currentUser.username===article.author?<button className="article-delete, styled-button">Delete my article</button>:null}
                     </div>
                     
                     <div className='article-box-2'>
@@ -87,7 +87,7 @@ function ArticlesList(props){
 
                     
                     
-                </div>
+                </li>
             )
         })}
 

@@ -55,15 +55,18 @@ function CommentPostForm(props){
        
     }
     else{
-        return(
+        return(<>
+            <label htmlFor='comment-form'hidden>Comment post form</label>
             <form id='comment-form' disabled={commentPostLoading} onSubmit={(e)=>handleSubmit(e, currentUser.username)}>
                 <h2 id='comment-header'>Comments</h2>
                 <p id='comment-text'>{`Commenting as ${currentUser.username}:`}</p>
+                <label htmlFor='comment-input' hidden>Comment input text box</label>
                 <textarea id= 'comment-input' disabled={commentPostLoading} value={commentBody} type="text" onChange={(e)=>handleCommentInput(e)}></textarea>
-                <button id= 'comment-button'disabled={commentPostLoading}> Submit Comment</button>
+                <label htmlFor="comment-button" hidden>Comment submit button</label>
+                <button id= 'comment-button' className='styled-button'disabled={commentPostLoading}> Submit Comment</button>
                 <p id='comment-message'>{commentStatusMessage}</p>
             </form>
-            
+            </>
         )
     }
 

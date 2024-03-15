@@ -58,8 +58,8 @@ function handleNavSubmit(e){
     return(
         <div id='nav-bar'>
             <div id='nav-topic'>
-                <label>Select topic:  </label>
-                <select onChange={(e)=>handleTopicSelect(e)} value={selectedTopic}>
+                <label htmlFor='topic'>Select topic:  </label>
+                <select id='topic' onChange={(e)=>handleTopicSelect(e)} value={selectedTopic}>
                     <option key='0'>all</option>
                     {topics.map((topic, index)=>{
                      return (
@@ -73,8 +73,8 @@ function handleNavSubmit(e){
             <form id='nav-sorter' onSubmit={(e)=>handleNavSubmit(e)}>
             <div id='sort-by-select'>
                               
-                <label>Sorted By:</label>
-                <select onChange={(e)=>handleSortBy(e)} defaultValue='default' >
+                <label htmlFor='sorted-by-field'>Sorted By:</label>
+                <select id='sorted-by-field' onChange={(e)=>handleSortBy(e)} defaultValue='default' >
                     <option value='default' disabled>Sort by..</option>
                     <option value='created_at'>date</option>
                     <option value='comment_count'>comment count</option>
@@ -83,15 +83,15 @@ function handleNavSubmit(e){
                 </select>
             </div>
             <div id = 'order-select'>
-            <label>Order:</label>
-                <select onInput={(e)=>handleOrder(e)} defaultValue='default'>
+            <label htmlFor='order-field'>Order:</label>
+                <select id= 'order-field' onInput={(e)=>handleOrder(e)} defaultValue='default'>
                     <option value ='default' disabled>Order...</option>
                     <option value ='desc'>highest to lowest</option>
                     <option value ='asc'> lowest to highest</option>    
                 </select>
            
             </div>
-            <button disabled={sortBy===null||order===null?true:false}>Go!</button>
+            <button className="" disabled={sortBy===null||order===null?true:false}>Go!</button>
             </form>  
             
         </div>

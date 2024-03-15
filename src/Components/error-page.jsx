@@ -18,7 +18,7 @@ function ErrorPage(){
     <section id ='error-page'>
     <h1 id='status-msg'>404</h1>
     <h2 id='error-page-msg'>This page doesn't seem to exist</h2>
-    <button onClick={(e)=>errorClickNav(e)}>Return to articles</button>
+    <button className='styled-button'onClick={(e)=>errorClickNav(e)}>Return to articles</button>
     </section>
     </>
 }
