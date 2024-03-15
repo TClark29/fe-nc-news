@@ -21,7 +21,9 @@ function App() {
     <UserContext.Provider value={{currentUser:currentUser, setCurrentUser:setCurrentUser}}>
       <UserBar></UserBar>
       <Routes>
-        <Route path='/' element={<ArticlesPage></ArticlesPage>}/>
+      <Route path='/' element={<ArticlesPage></ArticlesPage>}/>
+
+        <Route path='/:topic' element={<ArticlesPage></ArticlesPage>}/>
         <Route path='/article/:id' element={<ArticleSingle></ArticleSingle>}/>
       </Routes>
     </UserContext.Provider>  

@@ -1,20 +1,29 @@
 import axios from "axios";
 
 
-function getArticles(topic='all'){
+function getArticles(topic='all', sortBy, order){
 
-    let queryStr=''
+    let queryStr='?'
 
     if (topic!=='all'&&topic!==undefined){
-        queryStr+=`?topic=${topic}`
+        queryStr+=`topic=${topic}`
     }
+    
+    if (sortBy!==null&&order!==null&&sortBy!==undefined&&order!==undefined){
+        if(topic!=='all'){
+            queryStr+='&'
+        }
+
+        queryStr+=`sort_by=${sortBy}&order=${order}`
+    }
+   
 
     return axios.get(`https://nc-news-6wmp.onrender.com/api/articles${queryStr}`)
     .then((response)=>{
         return response.data
     })
     .catch((err)=>{
-        console.log(err)
+        return err
     })
 }
 
