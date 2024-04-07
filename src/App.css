@@ -249,6 +249,7 @@ body{
 }
 .loading-message{
   text-align: center;
+  color: white;
 }
 
 #comment-form{
