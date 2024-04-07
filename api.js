@@ -106,7 +106,23 @@ function getTopics(){
    })
    }
 
+function patchComment(comment_id, votes){
+    console.log(comment_id, votes)
+    const sentBody = {inc_votes: votes}
+    console.log(sentBody)
+    return axios.patch(`https://nc-news-6wmp.onrender.com/api/comments/${comment_id}`, sentBody)
+    .then((response)=>{
+        console.log(response)
+        return response.data
+    })
+    .catch((err)=>{
+        return err
+    })
+
+
+}
+
    
 
 
-export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes, postComment, deleteComment, getTopics}
+export {getArticles, getArticleById, getCommentsByArticleId, getUsers, updateArticleVotes, postComment, deleteComment, getTopics, patchComment}

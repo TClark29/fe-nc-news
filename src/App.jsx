@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ArticlesPage from './Components/articles-page'
 import UserBar from './Components/user-bar'
@@ -6,6 +6,9 @@ import ArticleSingle from './Components/article-single'
 import { Route, Routes } from 'react-router-dom'
 import UserContext from './Contexts/user-context'
 import ErrorPage from './Components/error-page'
+
+
+
 
 function App() {
   
@@ -16,6 +19,10 @@ function App() {
       "avatar_url": "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141"
       }
   )
+
+
+
+ 
 
   return (
     <>
